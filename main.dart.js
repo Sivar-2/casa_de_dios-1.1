@@ -35249,7 +35249,7 @@ A.tg.prototype={
 ag(){return new A.Ii()}}
 A.Ii.prototype={
 k_(a){this.ap(new A.a4K(this,a))},
-R(a){var s,r,q,p=this,o=null,n=A.ap7(o,o,new A.qz("images/logoo.png",o,o)),m=t.E,l=A.d([A.aas(o,o,B.An,o,o,new A.a4O(p),o,o,o),A.aas(o,o,B.Am,o,o,new A.a4P(p),o,o,o)],m),k=p.f
+R(a){var s,r,q,p=this,o=null,n=A.ap7(o,o,new A.qz("assets/images/logoo.png",o,o)),m=t.E,l=A.d([A.aas(o,o,B.An,o,o,new A.a4O(p),o,o,o),A.aas(o,o,B.Am,o,o,new A.a4P(p),o,o,o)],m),k=p.f
 if(k==="Inicio"){k=A.kY(o,A.afC(A.mf(A.d([p.FM("Biblia",!0),p.nF("Devocionales"),p.nF("Oraci\xf3n"),p.nF("Ofrendas"),p.nF("Ense\xf1anzas"),p.nF("Grupos")],m),B.Z,B.a_,B.a8),B.aN),B.F,B.i,o,o,o,o,o,B.zE,o,o,o)
 s=A.kY(o,B.GG,B.F,o,o,new A.dJ(B.aj,o,o,A.ni(16),o,o,B.aP),o,o,B.eg,B.eg,o,o,1/0)
 r=A.ni(16)
