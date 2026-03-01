@@ -1,0 +1,33 @@
+name: Deploy Flutter Web
+
+on:
+  push:
+    branches:
+      - main  # Esto hace que se suba cada vez que hagas "Sync Changes"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Configurar Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          
+      - name: Instalar paquetes
+        run: flutter pub get
+        
+      - name: Construir aplicación Web
+        # IMPORTANTE: Cambia "casa_de_dios-1.1" por el nombre exacto de tu repo si es distinto
+        run: flutter build web --base-href "/casa_de_dios-1.1/"
+        
+      - name: Publicar en GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web
