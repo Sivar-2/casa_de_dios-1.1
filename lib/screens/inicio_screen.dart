@@ -31,7 +31,7 @@ class _InicioScreenState extends State<InicioScreen> {
         backgroundColor: Colors.white,
         elevation: 0,
         title: Image.asset(
-          'images/logoo.png', // Tu logo exacto como lo tenías
+          'assets/images/logoo.png', // Tu logo exacto como lo tenías
           height: 30,
           fit: BoxFit.contain,
         ),
