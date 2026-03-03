@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/inicio_screen.dart';
+import 'package:casa_de_dios/services/bible_api.dart'; 
 
 void main() {
   runApp(const CasaDeDiosApp());

@@ -1,4 +1,16 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import '../services/bible_api.dart'; 
+
+// IMPORTANTE: Cuando crees tus archivos reales en la carpeta /screens,
+// quita las "//" de estas líneas para conectarlos y borra las clases del final.
+ import 'bible.dart';
+// import 'devocional.dart';
+// import 'oracion.dart';
+// import 'ofrenda.dart';
+// import 'ensenanza.dart';
+// import 'grupo.dart';
 
 class InicioScreen extends StatefulWidget {
   const InicioScreen({super.key});
@@ -8,16 +20,43 @@ class InicioScreen extends StatefulWidget {
 }
 
 class _InicioScreenState extends State<InicioScreen> {
-  final Color colorPrimario = const Color(0xFF007AFF); // Azul de tu diseño
+  // 1. INSTANCIA DE LA API
+  final BibleApi _bibleApi = BibleApi(); 
+
+  final Color colorPrimario = const Color(0xFF007AFF); 
   final Color colorFondo = const Color(0xFFF2F2F7);
 
-  // Variable que controla qué pantalla estamos viendo en el centro
-  String _seccionActual = 'Inicio';
+  // 2. CONTROLADOR DEL SWIPE (PageView)
+  late PageController _pageController;
+  
+  // 3. Índice actual. Orden: 0:Inicio, 1:Biblia, 2:Devocional, 3:Oración, 4:Ofrendas, 5:Enseñanzas, 6:Grupos
+  int _currentIndex = 0;
 
-  // Función para cambiar la vista
-  void _cambiarSeccion(String nuevaSeccion) {
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: _currentIndex);
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  // Mueve la pantalla con animación al tocar botones
+  void _navegarA(int index) {
+    _pageController.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+  }
+
+  // Actualiza los botones de arriba cuando arrastras con el dedo (Swipe)
+  void _onPageChanged(int index) {
     setState(() {
-      _seccionActual = nuevaSeccion;
+      _currentIndex = index;
     });
   }
 
@@ -25,43 +64,56 @@ class _InicioScreenState extends State<InicioScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colorFondo,
-      
-      // HEADER: Se mantiene en todas las pantallas con tu logo intacto
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
         title: Image.asset(
-          'images/logoo.png', // Tu logo exacto como lo tenías
-          height: 30,
+          '/images/lo_go.png', // Asegúrate de que la ruta sea correcta en tu pubspec
+          height: 35,
           fit: BoxFit.contain,
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.search, color: Colors.grey),
-            onPressed: () => _cambiarSeccion('Búsqueda'),
-          ),
-          IconButton(
             icon: const Icon(Icons.notifications_none, color: Colors.grey),
-            onPressed: () => _cambiarSeccion('Notificaciones'),
+            onPressed: () {}, // Aquí irán las notificaciones
+          ),
+        ],
+      ),
+      
+      // EL CORAZÓN DEL SWIPE: El PageView
+      body: Column(
+        children: [
+          // La barra superior se mantiene fija
+          _crearNavegacionSuperior(),
+          
+          Expanded(
+            child: PageView(
+              controller: _pageController,
+              onPageChanged: _onPageChanged,
+              physics: const BouncingScrollPhysics(), // Da el efecto rebote al final
+              children: [
+                _construirPantallaInicio(),      // Index 0: Inicio
+                const BibliaScreen(),            // Index 1: Biblia
+                const DevocionalScreen(),        // Index 2: Devocionales
+                const OracionScreen(),           // Index 3: Oración
+                const OfrendaScreen(),           // Index 4: Ofrendas
+                const EnsenanzaScreen(),         // Index 5: Enseñanzas
+                const GrupoScreen(),             // Index 6: Grupos
+                _construirPantallaVacia('Perfil'), // Index 7: Perfil (Oculto del swipe normal)
+              ],
+            ),
           ),
         ],
       ),
 
-      // CUERPO: Depende de la sección seleccionada
-      body: _seccionActual == 'Inicio' 
-          ? _construirPantallaInicio() // Si es Inicio, muestra todo el diseño
-          : _construirPantallaVacia(), // Si es otra opción, muestra solo el nombre
-
-      // BOTÓN CENTRAL FLOTANTE (Donaciones)
       floatingActionButton: FloatingActionButton(
         backgroundColor: colorPrimario,
         shape: const CircleBorder(),
-        onPressed: () => _cambiarSeccion('Donaciones'),
+        onPressed: () => _navegarA(4), // Donaciones va directo a Ofrendas
         child: const Icon(Icons.volunteer_activism, color: Colors.white),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       
-      // BARRA INFERIOR (Media y Eventos intercambiados)
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
         notchMargin: 8.0,
@@ -70,13 +122,11 @@ class _InicioScreenState extends State<InicioScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _iconoNavAbajo(Icons.home, 'Inicio'),
-              // Media ahora está a la izquierda del botón central
-              _iconoNavAbajo(Icons.play_circle_outline, 'Media'),
-              const SizedBox(width: 40), // Espacio para el botón flotante
-              // Eventos ahora está a la derecha del botón central
-              _iconoNavAbajo(Icons.event, 'Eventos'),
-              _iconoNavAbajo(Icons.person_outline, 'Perfil'),
+              _iconoNavAbajo(Icons.home, 'Inicio', 0),
+              _iconoNavAbajo(Icons.play_circle_outline, 'Media', 5), // Lo conectamos a Enseñanzas
+              const SizedBox(width: 40), 
+              _iconoNavAbajo(Icons.event, 'Eventos', 6), // Lo conectamos a Grupos
+              _iconoNavAbajo(Icons.person_outline, 'Perfil', 7),
             ],
           ),
         ),
@@ -84,45 +134,34 @@ class _InicioScreenState extends State<InicioScreen> {
     );
   }
 
-  // =======================================================================
-  // CONSTRUCTOR DEL INICIO (Aquí están los botones de arriba y el contenido)
-  // =======================================================================
+  // ==========================================
+  // PANTALLA 0: EL INICIO REAL
+  // ==========================================
   Widget _construirPantallaInicio() {
     return SingleChildScrollView(
       child: Column(
         children: [
-          _crearNavegacionSuperior(), // Los botones de arriba SOLO están aquí
           _crearBannerVision(),
           _crearGridAcciones(),
           _crearSeccionPastores(),
-          const SizedBox(height: 100), // Espacio para que la barra inferior no tape nada
+          const SizedBox(height: 100), 
         ],
       ),
     );
   }
 
-  // =======================================================================
-  // PANTALLA GENÉRICA (Para cuando tocas Biblia, Eventos, etc.)
-  // =======================================================================
-  Widget _construirPantallaVacia() {
+  Widget _construirPantallaVacia(String titulo) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            _seccionActual,
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: colorPrimario),
-          ),
+          Text(titulo, style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: colorPrimario)),
           const SizedBox(height: 20),
           const Text('Contenido en construcción', style: TextStyle(color: Colors.grey)),
         ],
       ),
     );
   }
-
-  // =======================================================================
-  // WIDGETS MODULARES
-  // =======================================================================
 
   Widget _crearNavegacionSuperior() {
     return Container(
@@ -132,23 +171,24 @@ class _InicioScreenState extends State<InicioScreen> {
         scrollDirection: Axis.horizontal,
         child: Row(
           children: [
-            _itemNavSuperior('Biblia', activo: true),
-            _itemNavSuperior('Devocionales'),
-            _itemNavSuperior('Oración'),
-            _itemNavSuperior('Ofrendas'),
-            _itemNavSuperior('Enseñanzas'),
-            _itemNavSuperior('Grupos'),
+            _itemNavSuperior('Biblia', 1),
+            _itemNavSuperior('Devocionales', 2),
+            _itemNavSuperior('Oración', 3),
+            _itemNavSuperior('Ofrendas', 4),
+            _itemNavSuperior('Enseñanzas', 5),
+            _itemNavSuperior('Grupos', 6),
           ],
         ),
       ),
     );
   }
 
-  Widget _itemNavSuperior(String texto, {bool activo = false}) {
+  Widget _itemNavSuperior(String texto, int indexDestino) {
+    bool activo = _currentIndex == indexDestino;
     return Padding(
       padding: const EdgeInsets.only(right: 20),
       child: GestureDetector(
-        onTap: () => _cambiarSeccion(texto), // Al tocar, navega a esa sección
+        onTap: () => _navegarA(indexDestino),
         child: Column(
           children: [
             Text(
@@ -200,52 +240,87 @@ class _InicioScreenState extends State<InicioScreen> {
     );
   }
 
+  // ==========================================
+  // EL CUADRO BLANCO CON LA API Y NAVEGACIÓN
+  // ==========================================
   Widget _crearGridAcciones() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         children: [
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: Colors.grey.shade200),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('VERSÍCULO DEL DÍA', style: TextStyle(color: colorPrimario, fontSize: 10, fontWeight: FontWeight.bold)),
-                    const Icon(Icons.share, size: 16, color: Colors.grey),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                const Text('"Porque yo sé los pensamientos que tengo acerca de vosotros..."', style: TextStyle(fontStyle: FontStyle.italic, fontSize: 13)),
-                const Align(
-                  alignment: Alignment.centerRight,
-                  child: Text('— Jer. 29:11', style: TextStyle(color: Colors.grey, fontSize: 10, fontWeight: FontWeight.bold)),
-                )
-              ],
+          // Envolvemos el Versículo en un GestureDetector para que te lleve a la Biblia al tocar
+          GestureDetector(
+            onTap: () => _navegarA(1), 
+            child: FutureBuilder<Map<String, dynamic>>(
+              future: _bibleApi.fetchRandomVerse(),
+              builder: (context, snapshot) {
+                
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Container(
+                    height: 100,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(color: Colors.grey.shade200),
+                    ),
+                    child: const Center(child: CircularProgressIndicator(strokeWidth: 2)),
+                  );
+                }
+
+                final data = snapshot.data ?? {
+                  'texto': 'Porque yo sé los pensamientos que tengo acerca de vosotros...',
+                  'libro': 'Jeremias',
+                  'capitulo': 29,
+                  'versiculo': 11
+                };
+
+                return Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(color: Colors.grey.shade200),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('VERSÍCULO DEL DÍA', style: TextStyle(color: colorPrimario, fontSize: 10, fontWeight: FontWeight.bold)),
+                          const Icon(Icons.share, size: 16, color: Colors.grey),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Text('"${data['texto']}"', style: const TextStyle(fontStyle: FontStyle.italic, fontSize: 13)),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Text('— ${data['libro']} ${data['capitulo']}:${data['versiculo']}', 
+                          style: const TextStyle(color: Colors.grey, fontSize: 10, fontWeight: FontWeight.bold)),
+                      )
+                    ],
+                  ),
+                );
+              },
             ),
           ),
           const SizedBox(height: 12),
+          // Conectamos los botones rápidos con sus respectivas pantallas
           Row(
             children: [
-              Expanded(child: _botonAccionRapida('Siguiente paso', 'Crece en tu fe', Icons.emoji_people, colorPrimario)),
+              Expanded(child: _botonAccionRapida('Siguiente paso', 'Crece en tu fe', Icons.emoji_people, colorPrimario, 6)), // Va a Grupos
               const SizedBox(width: 8),
-              Expanded(child: _botonAccionRapida('¿Necesitas oración?', 'Estamos contigo', Icons.volunteer_activism, const Color(0xFF0069D9))),
+              Expanded(child: _botonAccionRapida('¿Necesitas oración?', 'Estamos contigo', Icons.volunteer_activism, const Color(0xFF0069D9), 3)), // Va a Oración
             ],
           ),
           const SizedBox(height: 8),
           Row(
             children: [
-              Expanded(child: _botonAccionRapida('Una palabra', 'Inspiración', Icons.auto_stories, const Color(0xFF0056B3))),
+              Expanded(child: _botonAccionRapida('Una palabra', 'Inspiración', Icons.auto_stories, const Color(0xFF0056B3), 2)), // Va a Devocionales
               const SizedBox(width: 8),
-              Expanded(child: _botonAccionRapida('Podcast', 'Escuchar ahora', Icons.mic, Colors.black87)),
+              Expanded(child: _botonAccionRapida('Podcast', 'Escuchar ahora', Icons.mic, Colors.black87, 5)), // Va a Enseñanzas
             ],
           ),
         ],
@@ -253,9 +328,9 @@ class _InicioScreenState extends State<InicioScreen> {
     );
   }
 
-  Widget _botonAccionRapida(String titulo, String subtitulo, IconData icono, Color color) {
+  Widget _botonAccionRapida(String titulo, String subtitulo, IconData icono, Color color, int indexDestino) {
     return InkWell(
-      onTap: () => _cambiarSeccion(titulo), // También navegan al tocarlos
+      onTap: () => _navegarA(indexDestino), 
       child: Container(
         height: 100,
         padding: const EdgeInsets.all(12),
@@ -280,7 +355,7 @@ class _InicioScreenState extends State<InicioScreen> {
 
   Widget _crearSeccionPastores() {
     return InkWell(
-      onTap: () => _cambiarSeccion('Pastores'),
+      onTap: () {}, 
       child: Container(
         margin: const EdgeInsets.all(16),
         padding: const EdgeInsets.all(12),
@@ -305,12 +380,10 @@ class _InicioScreenState extends State<InicioScreen> {
     );
   }
 
-  Widget _iconoNavAbajo(IconData icono, String texto) {
-    // Si la sección actual es igual al texto del botón, se pinta de azul
-    bool activo = _seccionActual == texto;
-
+  Widget _iconoNavAbajo(IconData icono, String texto, int indexDestino) {
+    bool activo = _currentIndex == indexDestino;
     return InkWell(
-      onTap: () => _cambiarSeccion(texto),
+      onTap: () => _navegarA(indexDestino),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -324,4 +397,41 @@ class _InicioScreenState extends State<InicioScreen> {
       ),
     );
   }
+}
+
+// =====================================================================
+// PANTALLAS DE PRUEBA (Para que no te dé error al correrlo hoy mismo)
+// Nota: Una vez crees los archivos reales, puedes borrar todo esto de abajo.
+// =====================================================================
+
+
+
+class DevocionalScreen extends StatelessWidget {
+  const DevocionalScreen({super.key});
+  @override
+  Widget build(BuildContext context) => const Center(child: Text('Pantalla de Devocional', style: TextStyle(fontSize: 24, color: Colors.grey)));
+}
+
+class OracionScreen extends StatelessWidget {
+  const OracionScreen({super.key});
+  @override
+  Widget build(BuildContext context) => const Center(child: Text('Pantalla de Oración', style: TextStyle(fontSize: 24, color: Colors.grey)));
+}
+
+class OfrendaScreen extends StatelessWidget {
+  const OfrendaScreen({super.key});
+  @override
+  Widget build(BuildContext context) => const Center(child: Text('Pantalla de Ofrendas', style: TextStyle(fontSize: 24, color: Colors.grey)));
+}
+
+class EnsenanzaScreen extends StatelessWidget {
+  const EnsenanzaScreen({super.key});
+  @override
+  Widget build(BuildContext context) => const Center(child: Text('Pantalla de Enseñanzas', style: TextStyle(fontSize: 24, color: Colors.grey)));
+}
+
+class GrupoScreen extends StatelessWidget {
+  const GrupoScreen({super.key});
+  @override
+  Widget build(BuildContext context) => const Center(child: Text('Pantalla de Grupos', style: TextStyle(fontSize: 24, color: Colors.grey)));
 }
