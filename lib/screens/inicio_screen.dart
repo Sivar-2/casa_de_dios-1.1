@@ -68,8 +68,10 @@ class _InicioScreenState extends State<InicioScreen> {
         backgroundColor: Colors.white,
         elevation: 0,
         title: Image.asset(
+
           '/images/lo_go.png', // Asegúrate de que la ruta sea correcta en tu pubspec
           height: 35,
+
           fit: BoxFit.contain,
         ),
         actions: [
@@ -399,6 +401,7 @@ class _InicioScreenState extends State<InicioScreen> {
   }
 }
 
+
 // =====================================================================
 // PANTALLAS DE PRUEBA (Para que no te dé error al correrlo hoy mismo)
 // Nota: Una vez crees los archivos reales, puedes borrar todo esto de abajo.
@@ -435,3 +438,5 @@ class GrupoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => const Center(child: Text('Pantalla de Grupos', style: TextStyle(fontSize: 24, color: Colors.grey)));
 }
+
+
