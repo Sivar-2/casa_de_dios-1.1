@@ -168,7 +168,7 @@ class _OfrendaScreenState extends State<OfrendaScreen> {
         Container(
           height: 320,
           width: double.infinity,
-          child: Image.asset('images/dona.png', fit: BoxFit.cover),
+          child: Image.asset('assets/images/dona.png', fit: BoxFit.cover),
         ),
         Container(
           height: 320,

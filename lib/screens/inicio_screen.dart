@@ -68,7 +68,7 @@ class _InicioScreenState extends State<InicioScreen> {
         backgroundColor: Colors.white,
         elevation: 0,
         title: Image.asset(
-          'images/lo_go.png', 
+          'assets/images/lo_go.png', 
           height: 35,
           fit: BoxFit.contain,
         ),

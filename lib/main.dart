@@ -84,7 +84,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
               width: double.infinity,
               height: double.infinity,
               child: Image.asset(
-                'images/home2.png',
+                'assets/images/home2.png',
                 fit: BoxFit.cover, // Esto hace que la imagen cubra toda la pantalla sin deformarse
                 errorBuilder: (context, error, stackTrace) => 
                   Container(color: const Color(0xFFF6F7F8)), // Color de respaldo si falla la imagen
