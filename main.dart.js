@@ -44237,7 +44237,7 @@ m=$.af()
 l=$.ak
 A.aDD(j,new A.B4(new A.apJ(),new A.apK(),B.GX,!1,!0,!1,k,k,k,s,A.ay(t.f9),new A.b0(k,t.Ts),new A.b0(k,t.A),new A.q_(),k,0,new A.be(new A.al(r,q),p),o,n,k,B.fW,new A.bZ(k,m),new A.be(new A.al(l,q),p),new A.be(new A.al(l,q),p),t.vm))},
 K(a){var s=null,r=this.d,q=t.p
-return A.uT(s,s,A.axF(A.h7(B.bt,A.b([A.br(s,A.Mg("assets/images/home2.png",new A.apL(),B.eS,s),B.m,s,s,s,s,1/0,s,s,s,s,s,1/0),A.br(s,s,B.m,A.a7(51,B.l.q()>>>16&255,B.l.q()>>>8&255,B.l.q()&255),s,s,s,s,s,s,s,s,s,s),A.e9(A.bH(A.b([B.Eo,B.cF,B.YE],q),B.v,B.df,B.q),s,s)],q),B.G,B.bk),B.a5,B.d2,r),s,!1,s,s)}}
+return A.uT(s,s,A.axF(A.h7(B.bt,A.b([A.br(s,A.Mg("/assets/images/home2.png",new A.apL(),B.eS,s),B.m,s,s,s,s,1/0,s,s,s,s,s,1/0),A.br(s,s,B.m,A.a7(51,B.l.q()>>>16&255,B.l.q()>>>8&255,B.l.q()&255),s,s,s,s,s,s,s,s,s,s),A.e9(A.bH(A.b([B.Eo,B.cF,B.YE],q),B.v,B.df,B.q),s,s)],q),B.G,B.bk),B.a5,B.d2,r),s,!1,s,s)}}
 A.apN.prototype={
 $0(){var s=this.a
 if(s.c!=null)s.a7(new A.apM(s))},
@@ -44477,7 +44477,7 @@ s.M$=r
 s.N$=0
 this.aB()},
 K(a){var s,r,q,p,o=this,n=null,m=A.a7(B.d.au(25.5),B.au.q()>>>16&255,B.au.q()>>>8&255,B.au.q()&255),l=A.bz(16)
-l=A.br(n,new A.bj(B.fq,A.axS(A.bz(8),A.Mg("assets/images/transp.png",new A.apT(),B.nB,n)),n),B.m,n,n,new A.bv(m,n,n,l,n,n,B.K),n,80,n,n,n,n,n,80)
+l=A.br(n,new A.bj(B.fq,A.axS(A.bz(8),A.Mg("/assets/images/transp.png",new A.apT(),B.nB,n)),n),B.m,n,n,new A.bv(m,n,n,l,n,n,B.K),n,80,n,n,n,n,n,80)
 m=o.P2("Correo Electr\xf3nico")
 s=o.a8x("ejemplo@correo.com",B.Iq,o.d)
 r=o.P2("Contrase\xf1a")
