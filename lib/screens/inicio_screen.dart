@@ -9,7 +9,7 @@ import 'bible.dart';
 // import 'devocional.dart';
 import 'oracion.dart'; 
 import 'ofrenda.dart';
-// import 'ensenanza.dart';
+import 'ensenanza.dart';
 // import 'grupo.dart';
 
 class InicioScreen extends StatefulWidget {
@@ -68,7 +68,7 @@ class _InicioScreenState extends State<InicioScreen> {
         backgroundColor: Colors.white,
         elevation: 0,
         title: Image.asset(
-          '/assets/images/lo_go.png', 
+          'assets/images/lo_go.png', 
           height: 35,
           fit: BoxFit.contain,
         ),
@@ -401,14 +401,6 @@ class DevocionalScreen extends StatelessWidget {
 }
 
 // QUITAMOS ORACIONSCREEN DE AQUÍ PORQUE YA TIENE SU PROPIO ARCHIVO
-
-
-
-class EnsenanzaScreen extends StatelessWidget {
-  const EnsenanzaScreen({super.key});
-  @override
-  Widget build(BuildContext context) => const Center(child: Text('Pantalla de Enseñanzas', style: TextStyle(fontSize: 24, color: Colors.grey)));
-}
 
 class GrupoScreen extends StatelessWidget {
   const GrupoScreen({super.key});

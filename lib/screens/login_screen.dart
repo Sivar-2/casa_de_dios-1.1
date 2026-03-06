@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child: Image.asset(
-                      '/assets/images/transp.png', // Ruta de tu logo
+                      'assets/images/transp.png', // Ruta de tu logo
                       fit: BoxFit.contain,
                       errorBuilder: (context, error, stackTrace) => 
                         const Icon(Icons.menu_book, color: Color(0xFF13A4EC), size: 40),

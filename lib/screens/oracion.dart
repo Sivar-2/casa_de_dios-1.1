@@ -95,7 +95,7 @@ class _OracionScreenState extends State<OracionScreen> {
             height: 280, // Ajusta la altura que desees que cubra la imagen
             width: double.infinity,
             child: Image.asset(
-              '/assets/images/orac2.png', // Tu ruta de imagen
+              'assets/images/orac2.png', // Tu ruta de imagen
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) => Container(color: const Color(0xFF13A4EC)),
             ),
