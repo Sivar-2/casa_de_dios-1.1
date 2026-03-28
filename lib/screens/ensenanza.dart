@@ -171,8 +171,8 @@ Y amigo hay más unido que un hermano.
 [4]Lucas 7:37-38 (RVR1960]: 37Ahora bien, vivía en aquel pueblo una mujer que tenía fama de pecadora. Cuando ella se enteró de que Jesús estaba comiendo en casa del fariseo, se presentó con un frasco de alabastro lleno de perfume. 38Llorando, se arrojó a los pies de Jesús, de manera que se los bañaba en lágrimas. Luego se los secó con los cabellos; también se los besaba y se los ungía con el perfume.""",
  },
 
-    { "id": "4", "titulo": "Título 4", "descripcion": "Desc 4", "autor": "Pastor 4", "bio": "Bio 4", "videoUrl": "...", "progreso": 0.0, "thumbnail": "assets/images/p4.png", "escrito": "..." },
-    { "id": "5", "titulo": "Título 5", "descripcion": "Desc 5", "autor": "Pastor 5", "bio": "Bio 5", "videoUrl": "...", "progreso": 0.9, "thumbnail": "assets/images/p5.png", "escrito": "..." },
+    { "id": "4", "titulo": "Título 4", "descripcion": "Desc 4", "autor": "Pastor 4", "bio": "Bio 4", "videoUrl": "...", "progreso": 0.0, "thumbnail": "assets/images/invisi.jpg", "escrito": "..." },
+    { "id": "5", "titulo": "Título 5", "descripcion": "Desc 5", "autor": "Pastor 5", "bio": "Bio 5", "videoUrl": "...", "progreso": 0.9, "thumbnail": "assets/images/libre.jpg", "escrito": "..." },
    ];
 
   @override

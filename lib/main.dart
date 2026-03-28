@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/inicio_screen.dart';
 import 'screens/login_screen.dart';
-import 'screens/oracion.dart';
 
 void main() {
   runApp(const CasaDeDiosApp());
