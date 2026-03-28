@@ -24,6 +24,11 @@ class _InicioScreenState extends State<InicioScreen> {
   final Color colorPrimario = const Color(0xFF007AFF); 
   final Color colorFondo = const Color(0xFFF2F2F7);
 
+  // Colores del bottom nav personalizado
+  final Color celeste = const Color(0xFF00B4D8);
+  final Color luzAmarilla = Colors.amberAccent;
+  final Color colorInactivo = Colors.grey;
+
   // 2. CONTROLADOR DEL SWIPE (PageView)
   late PageController _pageController;
   
@@ -102,27 +107,32 @@ class _InicioScreenState extends State<InicioScreen> {
         ],
       ),
 
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: colorPrimario,
-        shape: const CircleBorder(),
-        onPressed: () => _navegarA(4), 
-        child: const Icon(Icons.volunteer_activism, color: Colors.white),
-      ),
+      // BOTÓN CENTRAL FLOTANTE
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => _navegarA(4), // Ofrendas / Donar
+        backgroundColor: celeste,
+        elevation: 4,
+        shape: const CircleBorder(),
+        child: const Icon(Icons.favorite, color: Colors.white, size: 30),
+      ),
+
+      // BARRA DE NAVEGACIÓN INFERIOR PERSONALIZADA
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
         notchMargin: 8.0,
+        color: Colors.white,
+        elevation: 10,
         child: SizedBox(
-          height: 60,
+          height: 70,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _iconoNavAbajo(Icons.home, 'Inicio', 0),
-              _iconoNavAbajo(Icons.play_circle_outline, 'Media', 5), 
-              const SizedBox(width: 40), 
-              _iconoNavAbajo(Icons.event, 'Eventos', 6), 
-              _iconoNavAbajo(Icons.person_outline, 'Perfil', 7),
+              _buildNavItem(icon: Icons.home_filled, index: 0, label: 'Inicio'),
+              _buildNavItem(icon: Icons.play_circle_fill, index: 5, label: 'Media'),
+              const SizedBox(width: 48), // Espacio para el botón central
+              _buildNavItem(icon: Icons.event, index: 6, label: 'Eventos'),
+              _buildNavItem(icon: Icons.person, index: 7, label: 'Perfil'),
             ],
           ),
         ),
@@ -369,20 +379,82 @@ class _InicioScreenState extends State<InicioScreen> {
     );
   }
 
-  Widget _iconoNavAbajo(IconData icono, String texto, int indexDestino) {
-    bool activo = _currentIndex == indexDestino;
-    return InkWell(
-      onTap: () => _navegarA(indexDestino),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icono, color: activo ? colorPrimario : Colors.grey),
-          Text(texto, style: TextStyle(
-            fontSize: 9, 
-            color: activo ? colorPrimario : Colors.grey,
-            fontWeight: activo ? FontWeight.bold : FontWeight.normal,
-          )),
-        ],
+  // WIDGET PERSONALIZADO CON EFECTO DE LUZ DEL CIELO
+  Widget _buildNavItem({required IconData icon, required int index, required String label}) {
+    bool isSelected = _currentIndex == index;
+
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: () => _navegarA(index),
+      child: SizedBox(
+        width: 60,
+        child: Stack(
+          alignment: Alignment.center,
+          clipBehavior: Clip.none,
+          children: [
+            // EFECTO DE LUZ DEL CIELO
+            if (isSelected)
+              Positioned(
+                top: -10,
+                child: Container(
+                  width: 40,
+                  height: 55,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        luzAmarilla.withValues(alpha: 0.5),
+                        luzAmarilla.withValues(alpha: 0.0),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+
+            // LÍNEA SUPERIOR BRILLANTE
+            if (isSelected)
+              Positioned(
+                top: -10,
+                child: Container(
+                  width: 30,
+                  height: 3,
+                  decoration: BoxDecoration(
+                    color: luzAmarilla,
+                    borderRadius: BorderRadius.circular(5),
+                    boxShadow: [
+                      BoxShadow(
+                        color: luzAmarilla.withValues(alpha: 0.8),
+                        blurRadius: 8,
+                        spreadRadius: 2,
+                      )
+                    ],
+                  ),
+                ),
+              ),
+
+            // ÍCONO + TEXTO
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  icon,
+                  color: isSelected ? celeste : colorInactivo,
+                  size: 28,
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  label,
+                  style: TextStyle(
+                    fontSize: 10,
+                    fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                    color: isSelected ? celeste : colorInactivo,
+                  ),
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
