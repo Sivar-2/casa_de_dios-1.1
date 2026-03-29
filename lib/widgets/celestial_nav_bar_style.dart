@@ -1,172 +1,144 @@
 import 'package:flutter/material.dart';
 
 /// ============================================================================
-/// NavBarStyle — Configuration class for the Celestial Bottom Navigation Bar.
+/// NavBarStyle — Premium configuration class for the Celestial Bottom Nav Bar.
 ///
-/// This class provides a single point of control for the entire look and feel
-/// of the custom navigation bar. Change colors, opacities, durations, and
-/// toggle between light/dark modes without touching any widget code.
+/// Controls every visual detail: colors, sizes, durations, glow parameters,
+/// and the divine light-beam cone effect.
 /// ============================================================================
 class NavBarStyle {
-  /// The primary highlight color used for the active icon and label.
+  // ── Colors ──
   final Color activeColor;
-
-  /// The color used for inactive icons and labels.
   final Color inactiveColor;
-
-  /// The color of the celestial light beam effect.
   final Color lightBeamColor;
-
-  /// The background color of the navigation bar itself.
   final Color backgroundColor;
-
-  /// The background color of the floating action button.
   final Color fabColor;
-
-  /// The icon color inside the floating action button.
   final Color fabIconColor;
 
-  /// The elevation (shadow depth) of the navigation bar.
+  // ── Bar dimensions ──
   final double barElevation;
-
-  /// The elevation of the floating action button.
   final double fabElevation;
-
-  /// The notch margin between the FAB and the bar cutout.
   final double notchMargin;
-
-  /// The height of the navigation bar content area.
   final double barHeight;
 
-  /// The opacity of the light beam gradient at its strongest point (top).
-  final double lightBeamOpacity;
+  // ── Light beam cone parameters ──
+  /// The width of the beam at its widest point (the top / sky origin).
+  final double beamTopWidth;
 
-  /// The glow intensity (blur radius) of the top accent line.
-  final double glowIntensity;
+  /// The width of the beam at its narrowest point (bottom, near the icon).
+  final double beamBottomWidth;
 
-  /// The spread radius of the glow effect on the top line.
-  final double glowSpread;
+  /// How tall the light cone extends above the bar.
+  final double beamHeight;
 
-  /// The width of the top glowing accent line.
-  final double glowLineWidth;
+  /// Peak opacity at the very top of the beam.
+  final double beamPeakOpacity;
 
-  /// The height of the top glowing accent line.
-  final double glowLineHeight;
-
-  /// The width of the light beam column.
-  final double lightBeamWidth;
-
-  /// The height of the light beam column.
-  final double lightBeamHeight;
-
-  /// The vertical offset for the light beam and glow (negative = above bar edge).
+  /// Vertical offset (negative = above bar edge).
   final double effectTopOffset;
 
-  /// Duration for the light beam fade/slide animation.
+  // ── Glow dot parameters ──
+  /// Whether to show a soft glow "source" dot at the beam origin.
+  final bool showGlowDot;
+
+  /// Radius of the glow source dot.
+  final double glowDotRadius;
+
+  /// Blur radius of the glow halo.
+  final double glowBlur;
+
+  /// Spread of the glow halo.
+  final double glowSpread;
+
+  // ── Animation ──
   final Duration beamAnimationDuration;
-
-  /// Duration for the icon color and scale transition.
   final Duration iconAnimationDuration;
-
-  /// The curve used for all entrance animations.
   final Curve animationCurve;
 
-  /// The scale factor applied to the active icon.
+  // ── Icon / Label ──
   final double activeIconScale;
-
-  /// The size of navigation icons.
   final double iconSize;
-
-  /// The font size of navigation labels.
   final double labelFontSize;
-
-  /// Whether to show labels beneath icons.
   final bool showLabels;
-
-  /// Whether to show the celestial light beam effect.
   final bool showLightBeam;
-
-  /// Whether to show the glowing top accent line.
-  final bool showGlowLine;
 
   const NavBarStyle({
     this.activeColor = const Color(0xFF00B4D8),
-    this.inactiveColor = const Color(0xFF9E9E9E),
-    this.lightBeamColor = const Color(0xFFFFE082),
+    this.inactiveColor = const Color(0xFFBCC3CD),
+    this.lightBeamColor = const Color(0xFFFFD54F),
     this.backgroundColor = Colors.white,
     this.fabColor = const Color(0xFF00B4D8),
     this.fabIconColor = Colors.white,
-    this.barElevation = 12.0,
-    this.fabElevation = 6.0,
+    this.barElevation = 0.0,
+    this.fabElevation = 8.0,
     this.notchMargin = 8.0,
-    this.barHeight = 70.0,
-    this.lightBeamOpacity = 0.5,
-    this.glowIntensity = 10.0,
-    this.glowSpread = 2.0,
-    this.glowLineWidth = 30.0,
-    this.glowLineHeight = 3.0,
-    this.lightBeamWidth = 40.0,
-    this.lightBeamHeight = 55.0,
-    this.effectTopOffset = -10.0,
-    this.beamAnimationDuration = const Duration(milliseconds: 350),
-    this.iconAnimationDuration = const Duration(milliseconds: 250),
+    this.barHeight = 62.0,
+    // THE LIGHT EFFECT: Tight at the top, wide at the bottom!
+    this.beamTopWidth = 6.0,
+    this.beamBottomWidth = 45.0,
+    this.beamHeight = 72.0,
+    this.beamPeakOpacity = 0.45,
+    this.effectTopOffset = -16.0,
+    this.showGlowDot = true,
+    this.glowDotRadius = 3.0,
+    this.glowBlur = 12.0,
+    this.glowSpread = 3.0,
+    this.beamAnimationDuration = const Duration(milliseconds: 450),
+    this.iconAnimationDuration = const Duration(milliseconds: 300),
     this.animationCurve = Curves.easeOutCubic,
-    this.activeIconScale = 1.15,
-    this.iconSize = 26.0,
+    this.activeIconScale = 1.1,
+    this.iconSize = 24.0,
     this.labelFontSize = 10.0,
     this.showLabels = true,
     this.showLightBeam = true,
-    this.showGlowLine = true,
   });
 
   // ─────────────────────────────────────────────────────────────────────────
-  //  PRESETS — Ready-to-use style configurations
+  //  PRESETS
   // ─────────────────────────────────────────────────────────────────────────
 
-  /// Default light mode with celestial sky-blue and amber light.
+  /// Clean light mode — white bar, amber skylight.
   static const NavBarStyle light = NavBarStyle();
 
-  /// Elegant dark mode with deep backgrounds and cool-toned highlights.
+  /// Elegant dark mode.
   static const NavBarStyle dark = NavBarStyle(
     activeColor: Color(0xFF4FC3F7),
-    inactiveColor: Color(0xFF757575),
+    inactiveColor: Color(0xFF5A6270),
     lightBeamColor: Color(0xFFFFD54F),
-    backgroundColor: Color(0xFF1A1A2E),
+    backgroundColor: Color(0xFF14141F),
     fabColor: Color(0xFF4FC3F7),
-    fabIconColor: Color(0xFF1A1A2E),
-    barElevation: 16.0,
-    lightBeamOpacity: 0.6,
-    glowIntensity: 14.0,
-    glowSpread: 3.0,
+    fabIconColor: Color(0xFF14141F),
+    barElevation: 0.0,
+    beamPeakOpacity: 0.55,
+    glowBlur: 14.0,
+    glowSpread: 4.0,
   );
 
-  /// A warm, golden-toned style for a more traditional church feel.
+  /// Warm gold — traditional church elegance.
   static const NavBarStyle warmGold = NavBarStyle(
     activeColor: Color(0xFFD4A54A),
-    inactiveColor: Color(0xFFBDBDBD),
+    inactiveColor: Color(0xFFC0B8A8),
     lightBeamColor: Color(0xFFFFD700),
-    backgroundColor: Color(0xFFFFF8E1),
+    backgroundColor: Color(0xFFFFFBF0),
     fabColor: Color(0xFFD4A54A),
     fabIconColor: Colors.white,
-    lightBeamOpacity: 0.45,
-    glowIntensity: 12.0,
+    beamPeakOpacity: 0.40,
   );
 
-  /// A deep purple/indigo spiritual theme.
+  /// Royal spirit — deep purple.
   static const NavBarStyle royalSpirit = NavBarStyle(
     activeColor: Color(0xFF7C4DFF),
-    inactiveColor: Color(0xFF9E9E9E),
+    inactiveColor: Color(0xFF6E6E80),
     lightBeamColor: Color(0xFFB388FF),
     backgroundColor: Color(0xFF0D0D1A),
     fabColor: Color(0xFF7C4DFF),
     fabIconColor: Colors.white,
-    barElevation: 20.0,
-    lightBeamOpacity: 0.55,
-    glowIntensity: 16.0,
+    beamPeakOpacity: 0.50,
+    glowBlur: 16.0,
     glowSpread: 4.0,
   );
 
-  /// Creates a copy of this style with the given fields replaced.
+  /// Creates a copy with the given fields replaced.
   NavBarStyle copyWith({
     Color? activeColor,
     Color? inactiveColor,
@@ -178,14 +150,15 @@ class NavBarStyle {
     double? fabElevation,
     double? notchMargin,
     double? barHeight,
-    double? lightBeamOpacity,
-    double? glowIntensity,
-    double? glowSpread,
-    double? glowLineWidth,
-    double? glowLineHeight,
-    double? lightBeamWidth,
-    double? lightBeamHeight,
+    double? beamTopWidth,
+    double? beamBottomWidth,
+    double? beamHeight,
+    double? beamPeakOpacity,
     double? effectTopOffset,
+    bool? showGlowDot,
+    double? glowDotRadius,
+    double? glowBlur,
+    double? glowSpread,
     Duration? beamAnimationDuration,
     Duration? iconAnimationDuration,
     Curve? animationCurve,
@@ -194,7 +167,6 @@ class NavBarStyle {
     double? labelFontSize,
     bool? showLabels,
     bool? showLightBeam,
-    bool? showGlowLine,
   }) {
     return NavBarStyle(
       activeColor: activeColor ?? this.activeColor,
@@ -207,14 +179,15 @@ class NavBarStyle {
       fabElevation: fabElevation ?? this.fabElevation,
       notchMargin: notchMargin ?? this.notchMargin,
       barHeight: barHeight ?? this.barHeight,
-      lightBeamOpacity: lightBeamOpacity ?? this.lightBeamOpacity,
-      glowIntensity: glowIntensity ?? this.glowIntensity,
-      glowSpread: glowSpread ?? this.glowSpread,
-      glowLineWidth: glowLineWidth ?? this.glowLineWidth,
-      glowLineHeight: glowLineHeight ?? this.glowLineHeight,
-      lightBeamWidth: lightBeamWidth ?? this.lightBeamWidth,
-      lightBeamHeight: lightBeamHeight ?? this.lightBeamHeight,
+      beamTopWidth: beamTopWidth ?? this.beamTopWidth,
+      beamBottomWidth: beamBottomWidth ?? this.beamBottomWidth,
+      beamHeight: beamHeight ?? this.beamHeight,
+      beamPeakOpacity: beamPeakOpacity ?? this.beamPeakOpacity,
       effectTopOffset: effectTopOffset ?? this.effectTopOffset,
+      showGlowDot: showGlowDot ?? this.showGlowDot,
+      glowDotRadius: glowDotRadius ?? this.glowDotRadius,
+      glowBlur: glowBlur ?? this.glowBlur,
+      glowSpread: glowSpread ?? this.glowSpread,
       beamAnimationDuration: beamAnimationDuration ?? this.beamAnimationDuration,
       iconAnimationDuration: iconAnimationDuration ?? this.iconAnimationDuration,
       animationCurve: animationCurve ?? this.animationCurve,
@@ -223,12 +196,10 @@ class NavBarStyle {
       labelFontSize: labelFontSize ?? this.labelFontSize,
       showLabels: showLabels ?? this.showLabels,
       showLightBeam: showLightBeam ?? this.showLightBeam,
-      showGlowLine: showGlowLine ?? this.showGlowLine,
     );
   }
 
   /// Linearly interpolates between two [NavBarStyle] instances.
-  /// Useful for animated theme transitions.
   static NavBarStyle lerp(NavBarStyle a, NavBarStyle b, double t) {
     return NavBarStyle(
       activeColor: Color.lerp(a.activeColor, b.activeColor, t)!,
@@ -237,29 +208,29 @@ class NavBarStyle {
       backgroundColor: Color.lerp(a.backgroundColor, b.backgroundColor, t)!,
       fabColor: Color.lerp(a.fabColor, b.fabColor, t)!,
       fabIconColor: Color.lerp(a.fabIconColor, b.fabIconColor, t)!,
-      barElevation: _lerpDouble(a.barElevation, b.barElevation, t),
-      fabElevation: _lerpDouble(a.fabElevation, b.fabElevation, t),
-      notchMargin: _lerpDouble(a.notchMargin, b.notchMargin, t),
-      barHeight: _lerpDouble(a.barHeight, b.barHeight, t),
-      lightBeamOpacity: _lerpDouble(a.lightBeamOpacity, b.lightBeamOpacity, t),
-      glowIntensity: _lerpDouble(a.glowIntensity, b.glowIntensity, t),
-      glowSpread: _lerpDouble(a.glowSpread, b.glowSpread, t),
-      glowLineWidth: _lerpDouble(a.glowLineWidth, b.glowLineWidth, t),
-      glowLineHeight: _lerpDouble(a.glowLineHeight, b.glowLineHeight, t),
-      lightBeamWidth: _lerpDouble(a.lightBeamWidth, b.lightBeamWidth, t),
-      lightBeamHeight: _lerpDouble(a.lightBeamHeight, b.lightBeamHeight, t),
-      effectTopOffset: _lerpDouble(a.effectTopOffset, b.effectTopOffset, t),
+      barElevation: _lerp(a.barElevation, b.barElevation, t),
+      fabElevation: _lerp(a.fabElevation, b.fabElevation, t),
+      notchMargin: _lerp(a.notchMargin, b.notchMargin, t),
+      barHeight: _lerp(a.barHeight, b.barHeight, t),
+      beamTopWidth: _lerp(a.beamTopWidth, b.beamTopWidth, t),
+      beamBottomWidth: _lerp(a.beamBottomWidth, b.beamBottomWidth, t),
+      beamHeight: _lerp(a.beamHeight, b.beamHeight, t),
+      beamPeakOpacity: _lerp(a.beamPeakOpacity, b.beamPeakOpacity, t),
+      effectTopOffset: _lerp(a.effectTopOffset, b.effectTopOffset, t),
+      showGlowDot: t < 0.5 ? a.showGlowDot : b.showGlowDot,
+      glowDotRadius: _lerp(a.glowDotRadius, b.glowDotRadius, t),
+      glowBlur: _lerp(a.glowBlur, b.glowBlur, t),
+      glowSpread: _lerp(a.glowSpread, b.glowSpread, t),
       beamAnimationDuration: t < 0.5 ? a.beamAnimationDuration : b.beamAnimationDuration,
       iconAnimationDuration: t < 0.5 ? a.iconAnimationDuration : b.iconAnimationDuration,
       animationCurve: t < 0.5 ? a.animationCurve : b.animationCurve,
-      activeIconScale: _lerpDouble(a.activeIconScale, b.activeIconScale, t),
-      iconSize: _lerpDouble(a.iconSize, b.iconSize, t),
-      labelFontSize: _lerpDouble(a.labelFontSize, b.labelFontSize, t),
+      activeIconScale: _lerp(a.activeIconScale, b.activeIconScale, t),
+      iconSize: _lerp(a.iconSize, b.iconSize, t),
+      labelFontSize: _lerp(a.labelFontSize, b.labelFontSize, t),
       showLabels: t < 0.5 ? a.showLabels : b.showLabels,
       showLightBeam: t < 0.5 ? a.showLightBeam : b.showLightBeam,
-      showGlowLine: t < 0.5 ? a.showGlowLine : b.showGlowLine,
     );
   }
 
-  static double _lerpDouble(double a, double b, double t) => a + (b - a) * t;
+  static double _lerp(double a, double b, double t) => a + (b - a) * t;
 }

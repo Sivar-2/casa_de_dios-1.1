@@ -17,13 +17,16 @@ class _EnsenanzaScreenState extends State<EnsenanzaScreen> {
     {
       "id": "1",
       "titulo": "¿Cómo te quedó el ojo? ",
-      "descripcion": "En el saber popular, tener un buen ojo es poseer un cojunto de habilidades cognitivas y estandares, que se manifiestan en diversas tareas y contextos.",
+      "descripcion":
+          "En el saber popular, tener un buen ojo es poseer un cojunto de habilidades cognitivas y estandares, que se manifiestan en diversas tareas y contextos.",
       "autor": "Pastor Juan Diego Luna",
-      "bio": "Predicador y líder de jóvenes. Hijo de los pastores Cash y Sonia Luna de Casa de Dios, Guatemala. Sígueme en Twitter: http://x.com/juandiegoluna.",
+      "bio":
+          "Predicador y líder de jóvenes. Hijo de los pastores Cash y Sonia Luna de Casa de Dios, Guatemala. Sígueme en Twitter: http://x.com/juandiegoluna.",
       "videoUrl": "https://youtu.be/rZs_b8F4Anc",
       "progreso": 0.5,
       "thumbnail": "assets/images/ojo.jpg",
-      "escrito": """Jesús enseña cómo el ojo tiene una función importante para que haya luz o tinieblas en nuestra vida y explica la relevancia de tener luz habitando nuestro cuerpo. Pero lo hace desde un contexto de comparación con el tesoro que puede dar la riqueza.  Al profundizar, deja claro que el tema principal es la relación de tu corazón con las riquezas.[1]
+      "escrito":
+          """Jesús enseña cómo el ojo tiene una función importante para que haya luz o tinieblas en nuestra vida y explica la relevancia de tener luz habitando nuestro cuerpo. Pero lo hace desde un contexto de comparación con el tesoro que puede dar la riqueza.  Al profundizar, deja claro que el tema principal es la relación de tu corazón con las riquezas.[1]
 
 Entonces, queda claro que el tema es la relación de tu corazón con el dinero y quién ocupa la prioridad en la vida, porque Jesús lo relaciona con tener un ojo bueno o malo. Pero, ¿qué significa tener un buen ojo si también se relaciona con luz y tinieblas?
 
@@ -76,13 +79,16 @@ Referencias
     {
       "id": "2",
       "titulo": "Tres actitudes que mueven al mundo",
-      "descripcion": "Las tendencias de redes sociales se miden al instante, pero las...",
+      "descripcion":
+          "Las tendencias de redes sociales se miden al instante, pero las...",
       "autor": "Pastor Cash Luna",
-      "bio": "Fundador de Casa de Dios 🇬🇹| Creador de The Sapients®️, escuela de transformación basada en fe y sabiduría | Autor best-seller y conferencista internacional.",
+      "bio":
+          "Fundador de Casa de Dios 🇬🇹| Creador de The Sapients®️, escuela de transformación basada en fe y sabiduría | Autor best-seller y conferencista internacional.",
       "videoUrl": "https://youtu.be/d8jk7rT0Y_8",
       "progreso": 0.0,
       "thumbnail": "assets/images/actitud.jpg",
-      "escrito": """Hoy quiero hablar acerca de las tres actitudes más poderosas que mueven el mundo. Son tres ejes alrededor de los cuales las personas y la humanidad se mueven.
+      "escrito":
+          """Hoy quiero hablar acerca de las tres actitudes más poderosas que mueven el mundo. Son tres ejes alrededor de los cuales las personas y la humanidad se mueven.
 
 Amaré a Dios y al prójimo para siempre
 Jesús resume todos los mandamientos de la ley en dos mandamientos: Ama a Dios con todo tu corazón, con toda tu alma, con toda tu mente y al prójimo como a ti mismo. El gran mandamiento es amar a Dios y el segundo es semejante: amar al prójimo, porque sin eso no estaría completa la voluntad de Dios.[1]  
@@ -123,13 +129,21 @@ Referencias
 [6]Romanos 8:32 (RVR1960): El que no escatimó ni a su propio Hijo, sino que lo entregó por todos nosotros, ¿cómo no nos dará también con él todas las cosas?
 
 [7]Efesios 2:4-9 (RVR1960): 4Pero Dios, que es rico en misericordia, por su gran amor con que nos amó, 5aun estando nosotros muertos en pecados, nos dio vida juntamente con Cristo (por gracia sois salvos), 6y juntamente con él nos resucitó, y asimismo nos hizo sentar en los lugares celestiales con Cristo Jesús, 7para mostrar en los siglos venideros las abundantes riquezas de su gracia en su bondad para con nosotros en Cristo Jesús. 8Porque por gracia sois salvos por medio de la fe; y esto no de vosotros, pues es don de Dios; 9no por obras, para que nadie se gloríe.""",
-
     },
-    
-    { "id": "3", "titulo": "Amigos fieles y genuinos", "descripcion": "En esta enseñanza exploramos la oportunidad de ser amigos fieles y genuinos ",
-     "autor": "Pastor Cash Luna", "bio": "Fundador de Casa de Dios 🇬🇹| Creador de The Sapients®️, escuela de transformación basada en fe y sabiduría | Autor best-seller y conferencista internacional.",
-     "videoUrl": "https://youtu.be/84tmwZFpwnY", "progreso": 0.1, "thumbnail": "assets/images/amigo.jpg",
-      "escrito": """ La base fundamental de toda relación es una sólida amistad. En un matrimonio, la amistad es lo que tenemos antes de enamorarnos; y es lo que queda después de que se van los hijos de la casa. Y a veces no trabajamos la amistad como deberíamos hacerlo. ¿Qué tan valiosa es una amistad para que la Biblia me enseñe que Dios tuvo amigos?
+
+    {
+      "id": "3",
+      "titulo": "Amigos fieles y genuinos",
+      "descripcion":
+          "En esta enseñanza exploramos la oportunidad de ser amigos fieles y genuinos ",
+      "autor": "Pastor Cash Luna",
+      "bio":
+          "Fundador de Casa de Dios 🇬🇹| Creador de The Sapients®️, escuela de transformación basada en fe y sabiduría | Autor best-seller y conferencista internacional.",
+      "videoUrl": "https://youtu.be/84tmwZFpwnY",
+      "progreso": 0.1,
+      "thumbnail": "assets/images/amigo.jpg",
+      "escrito":
+          """ La base fundamental de toda relación es una sólida amistad. En un matrimonio, la amistad es lo que tenemos antes de enamorarnos; y es lo que queda después de que se van los hijos de la casa. Y a veces no trabajamos la amistad como deberíamos hacerlo. ¿Qué tan valiosa es una amistad para que la Biblia me enseñe que Dios tuvo amigos?
 
 El Creador del universo necesita tener amigos; el hecho de que sea el Todopoderoso Creador de todo no quiere decir que deba estar solo. Por eso, generaciones más tarde, recuerda a Su pueblo que ellos son descendientes de Abraham Su amigo.[1]
 
@@ -169,11 +183,31 @@ Y amigo hay más unido que un hermano.
 [3]Santiago 2:23 (RVR1960): Y se cumplió la Escritura que dice: Abraham creyó a Dios, y le fue contado por justicia, y fue llamado amigo de Dios.
 
 [4]Lucas 7:37-38 (RVR1960]: 37Ahora bien, vivía en aquel pueblo una mujer que tenía fama de pecadora. Cuando ella se enteró de que Jesús estaba comiendo en casa del fariseo, se presentó con un frasco de alabastro lleno de perfume. 38Llorando, se arrojó a los pies de Jesús, de manera que se los bañaba en lágrimas. Luego se los secó con los cabellos; también se los besaba y se los ungía con el perfume.""",
- },
+    },
 
-    { "id": "4", "titulo": "Título 4", "descripcion": "Desc 4", "autor": "Pastor 4", "bio": "Bio 4", "videoUrl": "...", "progreso": 0.0, "thumbnail": "assets/images/invisi.jpg", "escrito": "..." },
-    { "id": "5", "titulo": "Título 5", "descripcion": "Desc 5", "autor": "Pastor 5", "bio": "Bio 5", "videoUrl": "...", "progreso": 0.9, "thumbnail": "assets/images/libre.jpg", "escrito": "..." },
-   ];
+    {
+      "id": "4",
+      "titulo": "Título 4",
+      "descripcion": "Desc 4",
+      "autor": "Pastor 4",
+      "bio": "Bio 4",
+      "videoUrl": "...",
+      "progreso": 0.0,
+      "thumbnail": "assets/images/invisi.jpg",
+      "escrito": "...",
+    },
+    {
+      "id": "5",
+      "titulo": "Título 5",
+      "descripcion": "Desc 5",
+      "autor": "Pastor 5",
+      "bio": "Bio 5",
+      "videoUrl": "...",
+      "progreso": 0.9,
+      "thumbnail": "assets/images/libre.jpg",
+      "escrito": "...",
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -185,8 +219,13 @@ Y amigo hay más unido que un hermano.
             floating: true,
             backgroundColor: Colors.white,
             elevation: 0,
-            title: Text('Enseñanzas', 
-              style: GoogleFonts.inter(color: Colors.black, fontWeight: FontWeight.bold)),
+            title: Text(
+              'Enseñanzas',
+              style: GoogleFonts.inter(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
@@ -200,14 +239,29 @@ Y amigo hay más unido que un hermano.
               child: Column(
                 children: [
                   const SizedBox(height: 20),
-                  _bannerFinal("Mi siguiente paso", "Crece en tu fe", const Color(0xFF003366), Icons.directions_walk),
-                  _bannerFinal("Una palabra para tu vida", "Mensaje diario", const Color(0xFF0A0A0A), Icons.auto_stories),
-                  _bannerFinal("¿Necesitas una oración?", "Estamos contigo", const Color(0xFF13A4EC), Icons.favorite),
+                  _bannerFinal(
+                    "Mi siguiente paso",
+                    "Crece en tu fe",
+                    const Color(0xFF003366),
+                    Icons.directions_walk,
+                  ),
+                  _bannerFinal(
+                    "Una palabra para tu vida",
+                    "Mensaje diario",
+                    const Color(0xFF0A0A0A),
+                    Icons.auto_stories,
+                  ),
+                  _bannerFinal(
+                    "¿Necesitas una oración?",
+                    "Estamos contigo",
+                    const Color(0xFF13A4EC),
+                    Icons.favorite,
+                  ),
                   const SizedBox(height: 100),
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -219,7 +273,9 @@ Y amigo hay más unido que un hermano.
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10)],
+        boxShadow: [
+          BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10),
+        ],
       ),
       child: Column(
         children: [
@@ -229,9 +285,22 @@ Y amigo hay más unido que un hermano.
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(data['titulo'], style: GoogleFonts.inter(fontSize: 18, fontWeight: FontWeight.bold)),
+                Text(
+                  data['titulo'],
+                  style: GoogleFonts.inter(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 const SizedBox(height: 6),
-                Text(data['descripcion'], style: GoogleFonts.inter(color: Colors.grey.shade600, fontSize: 13), maxLines: 2),
+                Text(
+                  data['descripcion'],
+                  style: GoogleFonts.inter(
+                    color: Colors.grey.shade600,
+                    fontSize: 13,
+                  ),
+                  maxLines: 2,
+                ),
                 const SizedBox(height: 16),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -240,29 +309,42 @@ Y amigo hay más unido que un hermano.
                     GestureDetector(
                       onTap: () => _mostrarBioAutor(data['autor'], data['bio']),
                       child: Text(
-                        data['autor'], 
+                        data['autor'],
                         style: const TextStyle(
                           color: Color(0xFF13A4EC), // Azul celeste
-                          fontSize: 12, 
+                          fontSize: 12,
                           fontWeight: FontWeight.bold,
                           decoration: TextDecoration.underline,
-                        )
+                        ),
                       ),
                     ),
                     ElevatedButton.icon(
                       onPressed: () => _abrirDetallePredica(data),
-                      icon: const Icon(Icons.play_arrow, size: 16, color: Colors.white),
-                      label: const Text("VER AHORA", style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
+                      icon: const Icon(
+                        Icons.play_arrow,
+                        size: 16,
+                        color: Colors.white,
+                      ),
+                      label: const Text(
+                        "VER AHORA",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF13A4EC),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
                       ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
@@ -282,11 +364,33 @@ Y amigo hay más unido que un hermano.
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(width: 40, height: 4, decoration: BoxDecoration(color: Colors.grey.shade300, borderRadius: BorderRadius.circular(10))),
+            Container(
+              width: 40,
+              height: 4,
+              decoration: BoxDecoration(
+                color: Colors.grey.shade300,
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
             const SizedBox(height: 20),
-            Text(nombre, style: GoogleFonts.inter(fontSize: 22, fontWeight: FontWeight.bold, color: const Color(0xFF13A4EC))),
+            Text(
+              nombre,
+              style: GoogleFonts.inter(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: const Color(0xFF13A4EC),
+              ),
+            ),
             const SizedBox(height: 15),
-            Text(bio, textAlign: TextAlign.center, style: GoogleFonts.inter(fontSize: 16, color: Colors.black87, height: 1.5)),
+            Text(
+              bio,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.inter(
+                fontSize: 16,
+                color: Colors.black87,
+                height: 1.5,
+              ),
+            ),
             const SizedBox(height: 30),
           ],
         ),
@@ -299,12 +403,36 @@ Y amigo hay más unido que un hermano.
       children: [
         ClipRRect(
           borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
-          child: Image.asset(data['thumbnail'], height: 200, width: double.infinity, fit: BoxFit.cover,
-            errorBuilder: (context, error, stackTrace) => Container(color: Colors.grey.shade300, height: 200)),
+          child: Image.asset(
+            data['thumbnail'],
+            height: 200,
+            width: double.infinity,
+            fit: BoxFit.cover,
+            errorBuilder: (context, error, stackTrace) =>
+                Container(color: Colors.grey.shade300, height: 200),
+          ),
         ),
-        const Positioned.fill(child: Center(child: Icon(Icons.play_circle_fill, size: 50, color: Colors.white70))),
+        const Positioned.fill(
+          child: Center(
+            child: Icon(
+              Icons.play_circle_fill,
+              size: 50,
+              color: Colors.white70,
+            ),
+          ),
+        ),
         if (data['progreso'] > 0)
-          Positioned(bottom: 0, left: 0, right: 0, child: LinearProgressIndicator(value: data['progreso'], backgroundColor: Colors.transparent, color: const Color(0xFF13A4EC), minHeight: 4)),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: LinearProgressIndicator(
+              value: data['progreso'],
+              backgroundColor: Colors.transparent,
+              color: const Color(0xFF13A4EC),
+              minHeight: 4,
+            ),
+          ),
       ],
     );
   }
@@ -320,12 +448,33 @@ Y amigo hay más unido que un hermano.
 
   Widget _bannerFinal(String titulo, String sub, Color color, IconData icon) {
     return Container(
-      width: double.infinity, margin: const EdgeInsets.only(bottom: 12), padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(20)),
+      width: double.infinity,
+      margin: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(20),
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text(titulo, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16)), Text(sub, style: const TextStyle(color: Colors.white70, fontSize: 11))]),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                titulo,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              Text(
+                sub,
+                style: const TextStyle(color: Colors.white70, fontSize: 11),
+              ),
+            ],
+          ),
           Icon(icon, color: Colors.white.withOpacity(0.2), size: 28),
         ],
       ),
@@ -346,30 +495,67 @@ class _DetallePredicaBurbujaState extends State<DetallePredicaBurbuja> {
   @override
   void initState() {
     super.initState();
-    _controller = YoutubePlayerController(initialVideoId: YoutubePlayer.convertUrlToId(widget.data['videoUrl'])!, flags: const YoutubePlayerFlags(autoPlay: true));
+    _controller = YoutubePlayerController(
+      initialVideoId: YoutubePlayer.convertUrlToId(widget.data['videoUrl'])!,
+      flags: const YoutubePlayerFlags(autoPlay: true),
+    );
   }
+
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
       initialChildSize: 0.9,
       builder: (_, scrollController) => Container(
-        decoration: const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.vertical(top: Radius.circular(30))),
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+        ),
         child: Column(
           children: [
-            ClipRRect(borderRadius: const BorderRadius.vertical(top: Radius.circular(30)), child: YoutubePlayer(controller: _controller)),
-            Expanded(child: ListView(controller: scrollController, padding: const EdgeInsets.all(24), children: [
-              Text(widget.data['titulo'], style: GoogleFonts.inter(fontSize: 22, fontWeight: FontWeight.bold)),
-              const SizedBox(height: 8),
-              Text(widget.data['autor'], style: const TextStyle(color: Color(0xFF13A4EC), fontWeight: FontWeight.bold)),
-              const Divider(height: 40),
-              Text(widget.data['escrito'], style: GoogleFonts.newsreader(fontSize: 18, height: 1.6)),
-              const SizedBox(height: 50),
-            ])),
+            ClipRRect(
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(30),
+              ),
+              child: YoutubePlayer(controller: _controller),
+            ),
+            Expanded(
+              child: ListView(
+                controller: scrollController,
+                padding: const EdgeInsets.all(24),
+                children: [
+                  Text(
+                    widget.data['titulo'],
+                    style: GoogleFonts.inter(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    widget.data['autor'],
+                    style: const TextStyle(
+                      color: Color(0xFF13A4EC),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const Divider(height: 40),
+                  Text(
+                    widget.data['escrito'],
+                    style: GoogleFonts.newsreader(fontSize: 18, height: 1.6),
+                  ),
+                  const SizedBox(height: 50),
+                ],
+              ),
+            ),
           ],
         ),
       ),
     );
   }
+
   @override
-  void dispose() { _controller.dispose(); super.dispose(); }
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 }
